@@ -8,12 +8,14 @@ import { Pedidos } from '../modelos/pedidos';
 })
 export class ConexionService {
   private url = "http://localhost:3000";
-  private id: number;
+  public id: number;
   constructor(private http: HttpClient) {
     this.id = 0;
   }
 
   getPedidosCliente(id: number, correo: string): Promise<number> {
+
+
     let promesa = new Promise<number>((resolve, reject) => {
       if (id) {
         this.id = id;
@@ -30,12 +32,12 @@ export class ConexionService {
     return promesa;
   }
 
-  getPedidosTotal(): Observable<Number> {
+  getPedidosTotal(): Observable<number> {
     return this.http.get<number>(this.url + "/pedidos");
   }
 
   getUltimosPedidos(): Observable<Pedidos[]> {
-    return this.http.post<Pedidos[]>(this.url + "/pedidos", this.id);
+    return this.http.post<Pedidos[]>(this.url + "/pedidos", { id: this.id });
   }
 
 

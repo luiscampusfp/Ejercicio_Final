@@ -1,6 +1,13 @@
-<input type="text">
-<button>Entrar</button>
+<div *ngIf="id==0">
+    <input type="text" #dato>
+    <button (click)="entrar(dato.value)">Entrar</button>
+</div>
 
+<div *ngIf="id!=0">
+    <h3>Canitdad de pedidos: {{cantP}}</h3>
+    <h3>Cantidad de pedidos totales: {{cantT}}</h3>
+</div>
 
-<h3>Canitdad de pedidos: {{cantP}}</h3>
-<h3>Cantidad de pedidos totales: {{cantT}}</h3>
+<p *ngFor="let pedido of pedidos">Precio {{pedido.amount}}
+    <br>Fecha {{pedido.payment_date}}
+</p>

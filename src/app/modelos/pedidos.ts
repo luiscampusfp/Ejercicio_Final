@@ -1,9 +1,9 @@
 export class Pedidos {
-    public precio: number;
-    public fecha: Date;
+    public amount: number;
+    public payment_date: Date;
 
-    constructor(precio: number, fecha: Date) {
-        this.precio = precio;
-        this.fecha = fecha;
+    constructor(amount: number, payment_date: Date) {
+        this.amount = amount;
+        this.payment_date = payment_date;
     }
 }
